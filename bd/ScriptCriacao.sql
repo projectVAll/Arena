@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      PostgreSQL 9.x                               */
-/* Created on:     04/02/2021 15:09:45                          */
+/* Created on:     04/02/2021 16:29:52                          */
 /*==============================================================*/
 
 
@@ -53,6 +53,8 @@ drop index RELATIONSHIP_5_FK;
 drop index MOVIMENTACAOCONTACONSULTOR_PK;
 
 drop table MOVIMENTACAOCONTACONSULTOR;
+
+drop index RELATIONSHIP_24_FK;
 
 drop index RELATIONSHIP_18_FK;
 
@@ -320,6 +322,7 @@ create table MOVIMENTACAOPAGAMENTO (
    IDPAGAMENTO          INT4                 not null,
    DESCRICAO            VARCHAR(255)         not null,
    DATA                 DATE                 not null,
+   IDTIPOMOVIMENTACAO   INT4                 not null,
    VALOR                NUMERIC(15,6)        not null,
    constraint PK_MOVIMENTACAOPAGAMENTO primary key (IDMOVIMENTACAOPAGAMENTO)
 );
@@ -336,6 +339,13 @@ IDMOVIMENTACAOPAGAMENTO
 /*==============================================================*/
 create  index RELATIONSHIP_18_FK on MOVIMENTACAOPAGAMENTO (
 IDPAGAMENTO
+);
+
+/*==============================================================*/
+/* Index: RELATIONSHIP_24_FK                                    */
+/*==============================================================*/
+create  index RELATIONSHIP_24_FK on MOVIMENTACAOPAGAMENTO (
+IDTIPOMOVIMENTACAO
 );
 
 /*==============================================================*/
@@ -561,6 +571,11 @@ alter table MOVIMENTACAOCONTACONSULTOR
 alter table MOVIMENTACAOPAGAMENTO
    add constraint FK_MOVIMENT_RELATIONS_PAGAMENT foreign key (IDPAGAMENTO)
       references PAGAMENTO (IDPAGAMENTO)
+      on delete restrict on update restrict;
+
+alter table MOVIMENTACAOPAGAMENTO
+   add constraint FK_MOVIMENT_RELATIONS_TIPOMOVI foreign key (IDTIPOMOVIMENTACAO)
+      references TIPOMOVIMENTACAO (IDTIPOMOVIMENTACAO)
       on delete restrict on update restrict;
 
 alter table PAGAMENTO
