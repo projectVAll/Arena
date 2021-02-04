@@ -6,6 +6,7 @@
 	<Local Expanded="Yes" Name="Arena">
 		<Model ID="{2F1FA4D2-97F0-435E-B32F-3EFEEA372CF1}" Loaded="No" Name="OutrasFuncionalidadesRever" Type="{5F45F978-C4F3-4E35-A3FC-AF3318663A0F}" URL="OutrasFuncionalidadesRever.ldm"/>
 		<Model Expanded="Yes" ID="{FE0F4267-34CC-48F9-9E6D-8EA8E3A66C0A}" Name="PreviaModeloFinal" Type="{5F45F978-C4F3-4E35-A3FC-AF3318663A0F}" URL="Mindicacao.ldm"/>
+		<Model Expanded="Yes" ID="{05CEE93A-1E11-4E60-81EE-D9E8D132A92E}" Name="PreviaModeloFinal" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="PreviaModeloFinal.pdm"/>
 	</Local>
 	<BrowserModule Name="Repository"/>
 </Workspace>
